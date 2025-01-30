@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 const Home = async () => {
@@ -9,7 +10,7 @@ const Home = async () => {
 
       <ul className="flex flex-col gap-y-2">
         {posts.map(post => (
-          <li key={post.id}>{post.name}</li>
+          <li key={post.id} className="flex items-center gap-x-4"><div>{post.name}</div><div><Link href={`/posts/${post.id}`}>Go To</Link></div></li>
         ))}
       </ul>
     </div>
