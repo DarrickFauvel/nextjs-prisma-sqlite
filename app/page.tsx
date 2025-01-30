@@ -1,7 +1,19 @@
-import Image from "next/image";
+import { prisma } from "@/lib/prisma";
 
-export default function Home() {
+const Home = async () => {
+  const posts = await prisma.post.findMany()
+
   return (
-    <h2>Home</h2>
+    <div className="p-4 flex flex-col gap-y-4">
+      <h2>Home</h2>
+
+      <ul className="flex flex-col gap-y-2">
+        {posts.map(post => (
+          <li key={post.id}>{post.name}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
+
+export default Home
