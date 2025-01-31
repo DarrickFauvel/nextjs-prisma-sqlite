@@ -24,7 +24,7 @@ const Home = async () => {
       <h2>Home</h2>
 
       <form action={createPost} className="flex flex-col gap-y-2">
-        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="name" placeholder="Name" className="text-black" />
         <button type="submit">Create</button>
       </form>
 
